@@ -1,9 +1,9 @@
 
 function LogoComponent() {
   return (
-    <div>
-      LogoComponent
-    </div>
+    <h1 className="monoton-regular">
+      🌴 Far Away 🧳 
+    </h1>
   );
 }
 
