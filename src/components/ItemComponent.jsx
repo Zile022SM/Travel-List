@@ -1,11 +1,14 @@
+import { useState } from "react";
 
-function ItemComponent({item}) {
+function ItemComponent({item,onDeleteItem,onToogleItem}) {
+
   return (
     <li>
-        <span className={item.packed ? "":"crossed-out"}>
+      <input type="checkbox" name="item" value={item.packed} onChange={()=>{onToogleItem(item.id)}} />
+        <span className={item.packed ? "crossed-out" : ""}>
           {item.quantity} {item.description}{item.packed}
         </span>
-        <button>❌</button>
+        <button onClick={()=>onDeleteItem(item.id)}>❌</button>
     </li>
   );
 }

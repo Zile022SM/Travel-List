@@ -1,21 +1,16 @@
 import ItemComponent from "./ItemComponent";
 
-const initialItems = [
-    { id: 1, description: "Passports", quantity: 2, packed: true },
-    { id: 2, description: "Socks", quantity: 12, packed: false },
-  ];
-
-function PackingListComponent({items}) {
+function PackingListComponent({items,onDeleteItem,onToogleItem}) {
   return (
     <div className="list">
         <ul>
             {items.length > 0 ? (
                 
                 items.map((item,key)=>{
-                  return  <ItemComponent item={item} key={item.id} />
+                  return  <ItemComponent item={item} key={item.id} onDeleteItem={onDeleteItem} onToogleItem={onToogleItem} />
                 })
                 
-            ) : (<li>Nema stavki u listi</li>)}
+            ) : (<li>No items in the list!</li>)}
         </ul>
     </div>
   );

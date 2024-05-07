@@ -14,11 +14,20 @@ function App() {
     });
   }
 
+  function handleToogleItem(id){
+    setItems(items=>items.map((item)=>item.id===id?{...item,packed:!item.packed}:item));
+  }
+    
+
+  function handleDeleteItem(id){
+      setItems(items=>items.filter(item=>item.id!==id));
+  }
+
   return (
     <div className="app">
       <LogoComponent />
       <FormComponent onAddItems={handleAddItems} />
-      <PackingListComponent items={items} />
+      <PackingListComponent items={items} onDeleteItem={handleDeleteItem} onToogleItem={handleToogleItem}/>
       <StatsComponent />
     </div>
   );
