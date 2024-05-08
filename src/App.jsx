@@ -7,6 +7,7 @@ import "./index.css";
 
 function App() {
   const [items, setItems] = useState([]);
+ 
 
   function handleAddItems(item) {
     setItems((items) => {
@@ -28,7 +29,7 @@ function App() {
       <LogoComponent />
       <FormComponent onAddItems={handleAddItems} />
       <PackingListComponent items={items} onDeleteItem={handleDeleteItem} onToogleItem={handleToogleItem}/>
-      <StatsComponent />
+      <StatsComponent items={items} />
     </div>
   );
 }
